@@ -49,14 +49,12 @@ const NavBar = () => {
         <div className="flex items-center justify-center gap-10">
           {NavBarItem.map((item) => {
             return (
-              <Link href={item.link as string}>
               <h1
                 key={JSON.stringify(item.id)}
                 className={`cursor-pointer font-bold hover:${item.color}`}
               >
                 {item.title}
               </h1>
-              </Link>
             );
           })}
           <button className="rounded-xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-3 font-bold hover:scale-95">

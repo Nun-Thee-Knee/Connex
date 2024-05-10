@@ -8,8 +8,6 @@ import NavBar from "~/components/NavBar";
 import { CardType, ContactType } from "utils/type";
 import { FaDiscord, FaLinkedin, FaInstagram, FaGithub  } from "react-icons/fa";
 import Link from "next/link";
-import { BrowserRouter as Router} from 'react-router-dom';
-
 
 
 const CardItems: CardType[] = [
@@ -66,7 +64,6 @@ const ContactList:ContactType[] = [
 
 const page = () => {
   return (
-    <Router>
     <div className="flex flex-col gap-10 p-10">
       <NavBar />
       <div id="Home" className="flex flex-col items-center justify-between gap-10 lg:mt-0 lg:flex-row">
@@ -177,7 +174,6 @@ const page = () => {
         })}
       </div>
     </div>
-    </Router>
   );
 };
 
