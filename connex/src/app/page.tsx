@@ -7,6 +7,6 @@ export default async function Home() {
 
   const id = session?.user.id;
   return (<>
-  {session?(redirect("/"+id)):(<HomePage/>)}
+  {!session?(<HomePage/>):(redirect("/"+id))}
   </>)
 }
