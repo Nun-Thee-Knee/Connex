@@ -1,3 +1,8 @@
+export enum Role {
+    Client, 
+    Freelancer
+}
+
 export type NavBarItemType = {
     id:number
     title: string,
@@ -13,7 +18,8 @@ export type AboutType = {
 export type CardType = {
     title: string,
     text: string,
-    img: string
+    img: string,
+    role?:Role
 }
 
 export type ContactType = {
