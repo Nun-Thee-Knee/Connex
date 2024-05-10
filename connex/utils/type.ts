@@ -9,3 +9,14 @@ export type AboutType = {
     color: string,
     text:string
 }
+
+export type CardType = {
+    title: string,
+    text: string,
+    img: string
+}
+
+export type ContactType = {
+    link: string,
+    icon: React.ReactNode
+}

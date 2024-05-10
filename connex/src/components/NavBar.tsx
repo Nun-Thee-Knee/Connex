@@ -6,31 +6,35 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu";
+import Link from "next/link";
 
 const NavBarItem: NavBarItemType[] = [
   {
     id: 1,
     title: "Home",
     color: "text-lime-500",
+    link: "#Home"
   },
   {
     id: 2,
     title: "About",
     color: "text-pink-500",
+    link: "#About"
   },
   {
     id: 3,
     title: "Features",
     color: "text-blue-500",
+    link: "#Features"
   },
   {
     id: 4,
     title: "Contact",
     color: "text-purple-500",
+    link: "#Contact"
   },
 ];
 
@@ -45,12 +49,14 @@ const NavBar = () => {
         <div className="flex items-center justify-center gap-10">
           {NavBarItem.map((item) => {
             return (
+              <Link href={item.link as string}>
               <h1
                 key={JSON.stringify(item.id)}
                 className={`cursor-pointer font-bold hover:${item.color}`}
               >
                 {item.title}
               </h1>
+              </Link>
             );
           })}
           <button className="rounded-xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-3 font-bold hover:scale-95">
