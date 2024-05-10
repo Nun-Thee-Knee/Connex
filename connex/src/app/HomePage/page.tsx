@@ -168,7 +168,7 @@ const page = () => {
       </div>
       <div id="Contact" className="p-10 gap-5 flex items-center justify-center mb-[-100px]">
         {ContactList.map((item)=>{
-          return <Link href={item.link}>
+          return <Link key={item.link} href={item.link}>
             <span className="text-zinc-700 hover:text-zinc-900 h-20 w-20">{item.icon}</span>
           </Link>
         })}
