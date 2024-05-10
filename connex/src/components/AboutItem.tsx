@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const AboutItem = ({title, text, color}:AboutType) => {
+const AboutItem = ({title="null", text="null", color="null"}:AboutType) => {
     useEffect(()=>{
         gsap.fromTo(
             '#title',
