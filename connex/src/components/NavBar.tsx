@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import NavBarItemType from "utils/type";
+import {NavBarItemType} from "utils/type";
 import { Menu } from "lucide-react";
 import {
   DropdownMenu,

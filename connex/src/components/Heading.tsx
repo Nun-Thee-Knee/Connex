@@ -42,9 +42,11 @@ const Heading = () => {
         receive applications, and find the perfect match with resume analysis.
         Effortless talent sourcing for your projects.
       </p>
-      <button id="startButton" className="opacity-0 mt-10 rounded-xl bg-gradient-to-r from-lime-500 to-pink-500 p-3 px-20 font-bold hover:scale-95">
+      <div className="hover:scale-95">
+      <button id="startButton" className="hover:scale-95 opacity-0 mt-10 rounded-xl bg-gradient-to-r from-lime-500 to-pink-500 p-3 px-20 font-bold ">
         Sign Up For free
       </button>
+      </div>
     </>
   );
 };
