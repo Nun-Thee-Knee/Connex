@@ -14,7 +14,7 @@ const page = () => {
             </center>
             </div>
             <div className='flex items-center h-full w-full justify-center'>
-                <Image unoptimized src="/rubbber.gif" height={700} width={700} alt='Image'></Image>
+                <Image src="/rubbber.gif" height={700} width={700} alt='Image'></Image>
             </div>
         </div>
     </div>
