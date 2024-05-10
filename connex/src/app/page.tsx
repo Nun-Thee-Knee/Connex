@@ -6,10 +6,7 @@ export default async function Home() {
   const session = await getServerAuthSession();
 
   const id = session?.user.id;
-  const image = session?.user.image;
-  if (session) {
-    return redirect("/"+id);
-  } else {
-    return <HomePage />;
-  }
+  return (<>
+  {session?(redirect("/"+id)):(<HomePage/>)}
+  </>)
 }
