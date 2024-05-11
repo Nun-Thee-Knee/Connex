@@ -4,6 +4,7 @@ import { getServerAuthSession } from "~/server/auth";
 
 const User = async () => {
   const session = await getServerAuthSession();
+  // @typescript-eslint/non-nullable-type-assertion-style
   const id = session?.user?.id as string;
   return (
     <div>
