@@ -1,10 +1,16 @@
 from flask import Flask, render_template, request, jsonify
 import pdfplumber
-from flask_cors import CORS, cross_origin
 import subprocess
+from flask_cors import CORS
+import requests
+
+
 
 app = Flask(__name__)
 
+app.config['CORS_HEADERS'] = 'Content-Type'
+
+CORS(app, resources={r"/upload/*": {"origins": "http://localhost:3000"}})
 
 def extract_text_from_pdf(file_path):
     with pdfplumber.open(file_path) as pdf:
@@ -15,7 +21,7 @@ def extract_text_from_pdf(file_path):
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return "Hello, World!"
 
 @app.route('/score', methods=['GET'])
 def get_score():
@@ -26,13 +32,23 @@ def get_score():
 @app.route('/upload', methods=['POST'])
 def upload_file():
     if request.method == 'POST':
-        pdf_file = request.files['pdf_file']
-        score_result = get_score()
-        ats_score = score_result.json()['score']
-        if pdf_file:
-            text = extract_text_from_pdf(pdf_file)
-            return render_template('index.html', ats_score=ats_score)
-    return render_template('index.html', message='Please upload a PDF file.')
+        url = request.get_json()['file']
+        response = requests.get(url)
+        filename = "resume.pdf"
+        if response.status_code == 200:
+           with open(filename, 'wb') as f:
+                f.write(response.content)
+                print(f"PDF downloaded successfully as {filename}")
+        else:
+            print(f"Failed to download PDF from {url}")
+
+        # pdf_file = request.files['res_file']
+        # score_result = get_score()
+        # ats_score = score_result.json()['score']
+        # if pdf_file:
+        #     text = extract_text_from_pdf(pdf_file)
+        #     return render_template('index.html', ats_score=ats_score)
+    return "No file"
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0',debug=True)
