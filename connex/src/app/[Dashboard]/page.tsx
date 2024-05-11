@@ -4,11 +4,8 @@ import { redirect, usePathname } from "next/navigation";
 import { api } from "~/trpc/react";
 import RoleAuth from "~/components/RoleAuth";
 
-interface dashboardProps {
-  id: string;
-}
 
-const Dashboard: FC<dashboardProps> = () => {
+const Dashboard = () => {
   const path = usePathname();
   const id = path?.substring(1);
   if (id) {
