@@ -16,5 +16,9 @@ export const jobRouter = createTRPCRouter({
                     stipend: input.stipend
                 }
             })
-        })
+        }),
+    fetchAllJobs: protectedProcedure
+    .query(async({ctx})=>{
+        return ctx.db.jobs.findMany({})
+    })
 })
