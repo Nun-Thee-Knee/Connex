@@ -15,16 +15,16 @@ datasource db {
 }
 
 model Jobs {
-    id          Int      @id @default(autoincrement())
-    name        String
-    createdAt   DateTime @default(now())
-    updatedAt   DateTime @updatedAt
-    workRoles   String[]
-    work        String
-    createdBy   User     @relation(fields: [createdById], references: [id])
-    createdById String
-    stipend Int
-    Applications String[]
+    id           Int      @id @default(autoincrement())
+    name         String
+    createdAt    DateTime @default(now())
+    updatedAt    DateTime @updatedAt
+    workRoles    String[]
+    work         String
+    createdBy    User     @relation(fields: [createdById], references: [id])
+    createdById  String
+    stipend      String   @default("0")
+    Applications String[] @default([])
 
     @@index([name])
 }

@@ -6,43 +6,83 @@ import { Button } from "~/components/ui/button"
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "~/components/ui/form"
+import { api } from "~/trpc/react"
+
  
 const formSchema = z.object({
-  username: z.string().min(2).max(50),
+  name: z.string().min(2).max(50),
+  work:z.string(),
+  stipend:z.string()
 })
 
 export function JobForm({id}:{id:string}) {
+  const jobCreate = api.job.create.useMutation({
+    onSuccess: ()=>{
+      console.log("Success")
+    },
+    onError: ()=>{
+      console.log("There was an error while doing so.")
+    }
+  })
     const form = useForm<z.infer<typeof formSchema>>({
       resolver: zodResolver(formSchema),
       defaultValues: {
-        username: "",
+        name: "",
       },
     })
    
     function onSubmit(values: z.infer<typeof formSchema>) {
       console.log(values)
+      const name = values.name;
+      const workRoles = ["Content Writer", "UI/UX", "Artist"]
+      const work = values.work;
+      const stipend = values.stipend
+      const createdById = id;
+      jobCreate.mutate({name, workRoles, work, stipend, createdById})
     }
     return (
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <FormField
               control={form.control}
-              name="username"
+              name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Username</FormLabel>
+                  <FormLabel>Company Name: </FormLabel>
                   <FormControl>
-                    <input placeholder="shadcn" {...field} />
+                    <input className="text-black" placeholder="shadcn" {...field} />
                   </FormControl>
-                  <FormDescription>
-                    This is your public display name.
-                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="work"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Work Description: </FormLabel>
+                  <FormControl>
+                    <input className="text-black" placeholder="shadcn" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="stipend"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Stipend: </FormLabel>
+                  <FormControl>
+                    <input className="text-black" placeholder="shadcn" {...field} />
+                  </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
