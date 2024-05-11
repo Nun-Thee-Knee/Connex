@@ -36,7 +36,7 @@ type jobType = {
 const Jobs = ({jobList}:{jobList:jobType[]}) => {
   return <div className="grid lg:grid-cols-3 md:grid-cols-2 flex-col gap-5">
     {jobList.map((job)=>{
-      return <AlertDialog>
+      return <AlertDialog key={job.id}>
       <AlertDialogTrigger><JobComponent
       name={job.name}
       jobRoles={job.workRoles}
