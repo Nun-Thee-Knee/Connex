@@ -8,7 +8,7 @@ import RoleAuth from "~/components/RoleAuth";
 
 const Dashboard = () => {
   const path = usePathname();
-  // @typescript-eslint/no-unnecessary-type-assertion
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
   const id = path?.substring(1) as string
   const { data: userData, isLoading } = api.user.getRole.useQuery({ id });
 
