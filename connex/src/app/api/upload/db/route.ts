@@ -5,7 +5,8 @@ import { getServerAuthSession } from "~/server/auth";
 const prisma = new PrismaClient();
 
 export async function POST(request: Request) {
-  const data = await request.json();
+  const data = request.json();
+
   try {
     //return if its client
     const session = await getServerAuthSession();
@@ -14,16 +15,18 @@ export async function POST(request: Request) {
     }
     //make a connection between the user and the url
 
-    const createResume = await prisma.user.create({
-      data: {
-        resume: data.url,
-        user: {
-          connect: {
-            id: session.user.id,
-          },
-        },
-      },
-    });
+    // const createResume = await prisma.resume.create({
+    //   data: {
+    //     user: {
+    //       connect: {
+    //         id: session.user.id,
+    //       },
+    //     },
+    //     file: data,
+    //   },
+    // });
+
+    // console.log("user = ", createResume.file);
 
     return NextResponse.json({ message: "Success" });
   } catch (error) {

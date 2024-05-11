@@ -23,4 +23,18 @@ export const userRouter = createTRPCRouter({
         },
       });
     }),
+  uploadResume: protectedProcedure
+    .input(z.object({ id: z.string(), file: z.string() }))
+    .mutation(async ({ ctx, input }) => {
+      return ctx.db.resume.create({
+        data: {
+          user: {
+            connect: {
+              id: input.id,
+            },
+          },
+          file: input.file,
+        },
+      });
+    }),
 });
