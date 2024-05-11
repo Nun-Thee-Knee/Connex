@@ -4,10 +4,10 @@ import AvatarUploadPage from "~/components/VercelBlob";
 import { usePathname } from "next/navigation";
 
 const User = async () => {
-  // const id = usePathname().split("/")[1] as string;
+  const id = usePathname().split("/")[1] as string;
   return (
     <div className="text-white">
-      {/* <AvatarUploadPage id={id}/> */}
+      <AvatarUploadPage id={id}/>
       <h1>Hello</h1>
     </div>
   );
