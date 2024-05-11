@@ -23,6 +23,8 @@ model Jobs {
     work        String
     createdBy   User     @relation(fields: [createdById], references: [id])
     createdById String
+    stipend Int
+    Applications String[]
 
     @@index([name])
 }

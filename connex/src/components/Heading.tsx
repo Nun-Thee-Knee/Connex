@@ -1,6 +1,7 @@
 'use client'
 import { useEffect } from "react";
 import gsap from "gsap"
+import Link from "next/link";
 
 const Heading = () => {
     useEffect(()=>{
@@ -43,9 +44,11 @@ const Heading = () => {
         Effortless talent sourcing for your projects.
       </p>
       <div className="hover:scale-95">
+        <Link href="/api/auth/signin">
       <button id="startButton" className="hover:scale-95 opacity-0 mt-10 rounded-xl bg-gradient-to-r from-lime-500 to-pink-500 p-3 px-20 font-bold ">
         Sign Up For free
       </button>
+      </Link>
       </div>
     </>
   );

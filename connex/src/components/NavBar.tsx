@@ -57,9 +57,11 @@ const NavBar = () => {
               </h1>
             );
           })}
+          <Link href="/api/auth/signin">
           <button className="rounded-xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-3 font-bold hover:scale-95">
             Get Started
           </button>
+          </Link>
         </div>
       </div>
       <div className="flex items-center justify-center lg:hidden">

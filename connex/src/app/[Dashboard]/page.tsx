@@ -21,8 +21,6 @@ const Dashboard = () => {
           )}
         </p>
       )}
-    </div>
-  );
 };
 
 export default Dashboard;
