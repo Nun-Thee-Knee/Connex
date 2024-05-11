@@ -55,9 +55,10 @@ model Account {
 }
 
 model Resume {
-    id       String @id @default(cuid())
-    filePath String
-    fileType String
+    id     String @id @default(cuid())
+    file   String
+    user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId String @unique
 }
 
 model Session {
@@ -78,6 +79,7 @@ model User {
     accounts      Account[]
     sessions      Session[]
     jobs          Jobs[]
+    resume        Resume?
 }
 
 model VerificationToken {
