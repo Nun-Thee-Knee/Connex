@@ -1,8 +1,14 @@
 import React from 'react'
+import JobForm from '~/components/JobForm';
+import { getServerAuthSession } from '~/server/auth'
 
-const page = () => {
+const page = async() => {
+  const session = await getServerAuthSession();
+  const id = session?.user.id as string;
   return (
-    <div>page</div>
+    <div className="flex items-center justify-center h-[100vh]">
+      <JobForm id={id}/>
+    </div>
   )
 }
 
