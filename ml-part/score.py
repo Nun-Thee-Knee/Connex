@@ -14,7 +14,7 @@ def extract_text_from_pdf(file):
     return text
 
 
-#initializing steamlit 
+#initializing 
 def main():
 
     job_des_file= None
