@@ -1,10 +1,14 @@
 import React from "react";
 import AvatarUploadPage from "~/components/VercelBlob";
+import { getServerAuthSession } from "~/server/auth";
 
-const User = () => {
+const User = async () => {
+  const session = await getServerAuthSession();
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
+  const id = session?.user?.id as string;
   return (
     <div>
-      <AvatarUploadPage />
+      <AvatarUploadPage id={id} />
     </div>
   );
 };
