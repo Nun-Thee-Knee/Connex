@@ -31,6 +31,17 @@ export default function AvatarUploadPage() {
 
           const newBlob = (await response.json()) as PutBlobResult;
 
+          //upload this blob to the database
+          const res = await fetch(`/api/upload/db`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              url: newBlob.url,
+            }),
+          });
+
           setBlob(newBlob);
         }}
       >
