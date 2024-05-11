@@ -1,18 +1,28 @@
-'use client'
-import React, { use } from 'react'
-import { usePathname} from 'next/navigation'
-import { api } from '~/trpc/react'
-import { Role } from '@prisma/client'
-import RoleAuth from '~/components/RoleAuth'
+"use client";
+import React from "react";
+import { usePathname } from "next/navigation";
+import { api } from "~/trpc/react";
+import { Role } from "@prisma/client";
+import RoleAuth from "~/components/RoleAuth";
 
 const Dashboard = () => {
-    const id = usePathname().split("/")[1]!;
-    const {data:userData, isLoading} = api.user.getRole.useQuery({id})
+  const id = usePathname().split("/")[1]!;
+  const { data: userData, isLoading } = api.user.getRole.useQuery({ id });
   return (
     <div>
-      {isLoading?<h1>Loading</h1>:<p>{userData?.role === "None"?(<RoleAuth id={id}/>):(<h1>{userData?.role}</h1>)}</p>}
+      {isLoading ? (
+        <h1>Loading</h1>
+      ) : (
+        <p>
+          {userData?.role === "None" ? (
+            <RoleAuth id={id} />
+          ) : (
+            <h1>{userData?.role}</h1>
+          )}
+        </p>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;
