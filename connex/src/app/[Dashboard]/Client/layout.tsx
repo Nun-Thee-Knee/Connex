@@ -1,7 +1,6 @@
 import "~/styles/globals.css";
 import { Inter } from "next/font/google";
 import SideDrawer from "./ClientComponents/SideDrawer";
-import { usePathname } from "next/navigation";
 
 const inter = Inter({
   subsets: ["latin"],
