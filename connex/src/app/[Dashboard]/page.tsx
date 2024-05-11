@@ -6,7 +6,6 @@ import { Role } from "@prisma/client";
 import RoleAuth from "~/components/RoleAuth";
 
 const Dashboard = () => {
-  //@ts-ignore
   const id = usePathname().split("/")[1]!;
   const { data: userData, isLoading } = api.user.getRole.useQuery({ id });
   return (
