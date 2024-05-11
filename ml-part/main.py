@@ -8,7 +8,7 @@ CORS(app)
 
 @app.route("/")
 def main():
-    return "This is to test if the web service works or not"
+    return "let's check this"
     
 
 if __name__ == "__main__":
