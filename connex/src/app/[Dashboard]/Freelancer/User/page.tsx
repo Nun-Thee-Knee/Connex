@@ -4,7 +4,7 @@ import { getServerAuthSession } from "~/server/auth";
 
 const User = async () => {
   const session = await getServerAuthSession();
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion @typescript-eslint/non-nullable-type-assertion-style
   const id = session?.user?.id as string;
   return (
     <div>
