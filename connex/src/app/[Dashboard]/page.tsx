@@ -26,6 +26,8 @@ const Dashboard = () => {
       )}
     </div>
   );
+}else{
+  return <h1>Error</h1>
 }
 };
 
