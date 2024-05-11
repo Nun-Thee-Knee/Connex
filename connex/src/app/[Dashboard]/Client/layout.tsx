@@ -1,7 +1,7 @@
 import "~/styles/globals.css";
-
 import { Inter } from "next/font/google";
 import SideDrawer from "./ClientComponents/SideDrawer";
+import { usePathname } from "next/navigation";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -21,12 +21,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`font-sans p-5 text-white bg-black ${inter.variable}`}>
-        <div className="flex gap-20">
-        <SideDrawer/>
-        <div className="flex items-center justify-center">
-        {children}
-        </div>
+      <body className={`bg-black font-sans text-white ${inter.variable}`}>
+        <div className="flex gap-20 p-5">
+          <SideDrawer />
+          <div className="flex items-center justify-center">{children}</div>
         </div>
       </body>
     </html>
