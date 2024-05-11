@@ -5,12 +5,12 @@ import { api } from "~/trpc/react";
 import RoleAuth from "~/components/RoleAuth";
 
 
+
 const Dashboard = () => {
   const path = usePathname();
-  const id = path?.substring(1);
-  if (id) {
-    const { data: userData, isLoading } = api.user.getRole.useQuery({ id });
-  
+  const id = path?.substring(1) as string
+  const { data: userData, isLoading } = api.user.getRole.useQuery({ id });
+
   return (
     <div>
       {isLoading ? (
@@ -26,9 +26,6 @@ const Dashboard = () => {
       )}
     </div>
   );
-}else{
-  return <h1>Error</h1>
-}
 };
 
 export default Dashboard;
