@@ -19,7 +19,8 @@ type jobType = {
 const page = () => {
   const {data:jobs, isLoading, error} = api.job.fetchAllJobs.useQuery();
   return (
-    <div>
+    <div className='flex flex-col gap-10 items-center justify-center h-auto py-20 px-10'>
+      <h1 className="text-white text-6xl">Click on the job to Apply</h1>
       <Link href="/api/auth/signout">
         <button className='bg-red-900 hover:bg-red-700 p-3 rounded-xl'>Sign Out</button>
       </Link>

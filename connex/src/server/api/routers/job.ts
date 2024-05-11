@@ -20,5 +20,14 @@ export const jobRouter = createTRPCRouter({
     fetchAllJobs: protectedProcedure
     .query(async({ctx})=>{
         return ctx.db.jobs.findMany({})
+    }),
+    userCreated: protectedProcedure
+    .input(z.object({id:z.string()}))
+    .query(async({ctx, input})=>{
+        return ctx.db.jobs.findMany({
+            where: {
+                createdById: input.id
+            }
+        })
     })
 })
