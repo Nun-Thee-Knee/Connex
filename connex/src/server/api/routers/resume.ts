@@ -12,6 +12,16 @@ export const resumeRouter = createTRPCRouter({
           },
         });
       }),
+
+    getResume: protectedProcedure
+      .input(z.object({ id: z.string() }))
+      .query(async ({ ctx, input }) => {
+        return ctx.db.resume.findFirst({
+          where: {
+            userId: input.id,
+          },
+        });
+      }),
   });
 
 
