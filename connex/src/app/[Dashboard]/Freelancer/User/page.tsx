@@ -1,14 +1,14 @@
+"use client";
 import React from "react";
 import AvatarUploadPage from "~/components/VercelBlob";
-import { getServerAuthSession } from "~/server/auth";
+import { usePathname } from "next/navigation";
 
 const User = async () => {
-  const session = await getServerAuthSession();
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
-  const id = session?.user?.id as string;
+  const id: string | undefined = usePathname().split("/")[1];
   return (
-    <div>
-      <AvatarUploadPage id={id} />
+    <div className="text-white">
+      {id !== undefined && <AvatarUploadPage id={id} />}
+      <h1>Hello</h1>
     </div>
   );
 };

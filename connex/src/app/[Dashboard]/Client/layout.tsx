@@ -1,7 +1,15 @@
 import "~/styles/globals.css";
 import { Inter } from "next/font/google";
 import SideDrawer from "./ClientComponents/SideDrawer";
-import { usePathname } from "next/navigation";
+import { GiHamburgerMenu } from "react-icons/gi";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "~/components/ui/dropdown-menu";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,7 +31,26 @@ export default function RootLayout({
     <html lang="en">
       <body className={`bg-black font-sans text-white ${inter.variable}`}>
         <div className="flex gap-20 p-5">
-          <SideDrawer />
+          <div className="hidden lg:block">
+            <SideDrawer />
+          </div>
+
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <div className="cursor-pointer hover:text-lime-500 lg:hidden">
+                <GiHamburgerMenu className="h-5 w-5" />
+              </div>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuLabel>My Account</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Profile</DropdownMenuItem>
+              <DropdownMenuItem>Billing</DropdownMenuItem>
+              <DropdownMenuItem>Team</DropdownMenuItem>
+              <DropdownMenuItem>Subscription</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
           <div className="flex items-center justify-center">{children}</div>
         </div>
       </body>
