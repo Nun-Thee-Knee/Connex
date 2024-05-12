@@ -8,10 +8,10 @@ import DashBoardItem from "~/components/DashBoardItem";
 const SideDrawer = async () => {
   const session = await getServerAuthSession();
   // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
-  const id = session?.user.id as string
-  const image = session?.user.image as string | undefined;
-  const name = session?.user.name;
-  const email = session?.user.email;
+  const id = session?.user.id!
+  const image = session?.user.image!;
+  const name = session?.user.name!;
+  const email = session?.user.email!;
   return (
     <div className="flex h-[95vh] w-80 items-start justify-center rounded-xl bg-neutral-950 px-5 py-10">
       <div className="w-full">
