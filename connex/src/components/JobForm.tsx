@@ -25,7 +25,7 @@ export function JobForm({id}:{id:string}) {
   const router = useRouter();
   const jobCreate = api.job.create.useMutation({
     onSuccess: ()=>{
-      router.refresh();
+      return redirect("Client/Jobs")
     },
     onError: ()=>{
       throw new Error("Could not complete the operation")

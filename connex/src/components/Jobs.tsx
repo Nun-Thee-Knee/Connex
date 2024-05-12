@@ -24,7 +24,6 @@ type jobType = {
   work: string;
   createdById: string;
   stipend: string;
-  Applications: string[];
 };
 
 const Jobs = ({ jobList }: { jobList: jobType[] }) => {
@@ -53,7 +52,6 @@ const Jobs = ({ jobList }: { jobList: jobType[] }) => {
               <JobComponent
                 name={job.name}
                 jobRoles={job.workRoles}
-                applicants={job.Applications.length}
                 description={job.work}
                 salary={job.stipend}
                 date={job.createdAt}

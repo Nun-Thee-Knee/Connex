@@ -12,8 +12,7 @@ type jobType = {
   workRoles: string[],
   work: string,
   createdById: string,
-  stipend: string,
-  Applications: string[]
+  stipend: string
 }
 
 const page = () => {

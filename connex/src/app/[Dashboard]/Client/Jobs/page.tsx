@@ -19,7 +19,6 @@ const Jobs = () => {
               <JobComponent
                 name={job.name}
                 jobRoles={job.workRoles}
-                applicants={job.Applications.length}
                 description={job.work}
                 salary={job.stipend}
                 date={job.createdAt}
