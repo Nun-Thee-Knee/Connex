@@ -30,6 +30,8 @@ const Jobs = ({ jobList }: { jobList: jobType[] }) => {
   const path = usePathname();
   const id = path?.substring(1) as string;
   const { data: userData, isLoading } = api.user.getRole.useQuery({ id });
+  // eslint-disable-next-line @typescript-eslint/non-nullable-type-assertion-style
+
   const { data: resume, isLoading: resumeLoading } =
     api.resume.getResume.useQuery({ id });
 
@@ -42,7 +44,6 @@ const Jobs = ({ jobList }: { jobList: jobType[] }) => {
     },
   });
 
-  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {};
   return (
     <div className="grid flex-col gap-5 md:grid-cols-2 lg:grid-cols-3">
       {jobList?.map((job) => {
@@ -66,7 +67,16 @@ const Jobs = ({ jobList }: { jobList: jobType[] }) => {
               </AlertDialogHeader>
               <AlertDialogFooter>
                 <AlertDialogCancel>Miss out</AlertDialogCancel>
-                <AlertDialogAction onClick={(e) => handleSubmit(e)}>
+                <AlertDialogAction
+                  onClick={() => {
+                    applyJob.mutate({
+                      jobId: job.id,
+                      userId: id,
+                      status: "Applied",
+                      resume: resume?.file as string,
+                    });
+                  }}
+                >
                   Apply Now
                 </AlertDialogAction>
               </AlertDialogFooter>
