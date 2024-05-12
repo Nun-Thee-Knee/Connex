@@ -1,0 +1,483 @@
+%PDF-1.3
+%ºß¬à
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 4 0 R
+>>
+endobj
+4 0 obj
+<<
+/Length 2218
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0 g
+28.3464566929133888 785.1970866141732586 Td
+(TRPC:) Tj
+ET
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0 g
+97.2396850393701015 785.1970866141732586 Td
+(Type-Safe) Tj
+ET
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0 g
+196.7329133858268051 785.1970866141732586 Td
+(APIs) Tj
+ET
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0 g
+250.6861417322834882 785.1970866141732586 Td
+(in) Tj
+ET
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0 g
+280.8793700787401804 785.1970866141732586 Td
+(a) Tj
+ET
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0 g
+304.952598425196868 785.1970866141732586 Td
+(Snap) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 734.1734645669291695 Td
+(## TRPC in 100 Seconds) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 666.1419685039369369 Td
+(### Introduction) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 598.1104724409448181 Td
+(* TRPC: A way to build type-safe APIs without schemas or code generation.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 564.0947244094487587 Td
+(* Two main API approaches: REST and GraphQL) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 530.0789763779526993 Td
+(* TRPC offers autocompletion, automatic type safety, and request patching.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 462.0474803149605805 Td
+(### REST vs. TRPC) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 394.0159842519684616 Td
+(**REST:**) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 325.9844881889763428 Td
+(* Fetch data using `useEffect` on component mount.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 291.9687401574802834 Td
+(* No strong contract between frontend and backend, leading to potential errors.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 223.9372440944881646 Td
+(**TRPC:**) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 155.9057480314959321 Td
+(* Enforces type safety, providing early error detection in the frontend.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 87.8742519685038133 Td
+(### Getting Started with TRPC) Tj
+ET
+endstream
+endobj
+5 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 6 0 R
+>>
+endobj
+6 0 obj
+<<
+/Length 2264
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 813.5435433070865656 Td
+(* Create a new project with `npm create e3f trpc`.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 779.5277952755905062 Td
+(* Set up routes \(like folders\) and procedures \(like files\) for your API.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 711.4962992125983874 Td
+(### Using TRPC in the Frontend) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 643.4648031496062686 Td
+(* Use the `API` object to navigate to a specific procedure \(e.g., `exampleRouter.load`\).) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 609.4490551181102092 Td
+(* TRPC uses `rc-query` to make HTTP requests.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 575.4333070866141497 Td
+(* Changes to the backend code will automatically trigger TypeScript errors in the frontend.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 507.4018110236219741 Td
+(### Batching Requests) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 439.3703149606298552 Td
+(* TRPC batches multiple requests into a single HTTP request for efficiency.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 371.3388188976377364 Td
+(### When Not to Use TRPC) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 303.3073228346455608 Td
+(* When frontend and backend are not written in TypeScript.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 269.2915748031495013 Td
+(* When separate backend and frontend teams work independently.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 201.2600787401573825 Td
+(### Conclusion) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 133.2285826771652637 Td
+(* TRPC is a powerful tool for building type-safe APIs.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 99.2128346456692043 Td
+(* It offers significant benefits over REST, including autocompletion, type safety, and request patching.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 65.1970866141731449 Td
+(* However, TRPC may not be suitable for all projects.) Tj
+ET
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R 5 0 R ]
+/Count 2
+>>
+endobj
+7 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+8 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+9 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+10 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+11 0 obj
+<<
+/Type /Font
+/BaseFont /Courier
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+12 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+13 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+14 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+15 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Roman
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+16 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+17 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Italic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+18 0 obj
+<<
+/Type /Font
+/BaseFont /Times-BoldItalic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+19 0 obj
+<<
+/Type /Font
+/BaseFont /ZapfDingbats
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+20 0 obj
+<<
+/Type /Font
+/BaseFont /Symbol
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 7 0 R
+/F2 8 0 R
+/F3 9 0 R
+/F4 10 0 R
+/F5 11 0 R
+/F6 12 0 R
+/F7 13 0 R
+/F8 14 0 R
+/F9 15 0 R
+/F10 16 0 R
+/F11 17 0 R
+/F12 18 0 R
+/F13 19 0 R
+/F14 20 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+21 0 obj
+<<
+/Producer (jsPDF 2.5.1)
+/CreationDate (D:20240511151803-07'00')
+>>
+endobj
+22 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+>>
+endobj
+xref
+0 23
+0000000000 65535 f 
+0000004875 00000 n 
+0000006700 00000 n 
+0000000015 00000 n 
+0000000152 00000 n 
+0000002422 00000 n 
+0000002559 00000 n 
+0000004938 00000 n 
+0000005063 00000 n 
+0000005193 00000 n 
+0000005326 00000 n 
+0000005464 00000 n 
+0000005588 00000 n 
+0000005717 00000 n 
+0000005849 00000 n 
+0000005985 00000 n 
+0000006113 00000 n 
+0000006240 00000 n 
+0000006369 00000 n 
+0000006502 00000 n 
+0000006604 00000 n 
+0000006950 00000 n 
+0000007036 00000 n 
+trailer
+<<
+/Size 23
+/Root 22 0 R
+/Info 21 0 R
+/ID [ <3D95BFC741CAB55F23D02AD84A20DDE4> <3D95BFC741CAB55F23D02AD84A20DDE4> ]
+>>
+startxref
+7140
+%%EOF
