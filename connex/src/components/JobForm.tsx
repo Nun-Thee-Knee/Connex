@@ -12,21 +12,23 @@ import {
   FormMessage,
 } from "~/components/ui/form"
 import { api } from "~/trpc/react"
-
+import { useRouter, redirect } from "next/navigation"
  
 const formSchema = z.object({
   name: z.string().min(2).max(50),
   work:z.string(),
-  stipend:z.string()
+  stipend:z.string(),
+  roles:z.string()
 })
 
 export function JobForm({id}:{id:string}) {
+  const router = useRouter();
   const jobCreate = api.job.create.useMutation({
     onSuccess: ()=>{
-      console.log("Success")
+      router.refresh();
     },
     onError: ()=>{
-      console.log("There was an error while doing so.")
+      throw new Error("Could not complete the operation")
     }
   })
     const form = useForm<z.infer<typeof formSchema>>({
@@ -39,25 +41,38 @@ export function JobForm({id}:{id:string}) {
     function onSubmit(values: z.infer<typeof formSchema>) {
       console.log(values)
       const name = values.name;
-      const workRoles = ["Content Writer", "UI/UX", "Artist"]
       const work = values.work;
       const stipend = values.stipend
       const createdById = id;
+      const roles = values.roles
+      const workRoles = values.roles.split(",")
       jobCreate.mutate({name, workRoles, work, stipend, createdById})
     }
     return (
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <div className="w-full">
+          <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-8 flex items-center justify-center flex-col">
             <FormField
               control={form.control}
               name="name"
               render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Company Name: </FormLabel>
+                <FormItem className="flex flex-col w-full items-center justify-center">
                   <FormControl>
-                    <input className="text-black" placeholder="shadcn" {...field} />
+                    <input className="rounded-xl p-3 w-full bg-black border-[1px] border-zinc-700" placeholder="Company Name" {...field} />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className="text-red-200"/>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="roles"
+              render={({ field }) => (
+                <FormItem className="flex flex-col w-full items-center justify-center">
+                  <FormControl>
+                  <input className="w-full rounded-xl p-3 bg-black border-[1px] border-zinc-700" placeholder="Type the Roles or Skill in Role1,Role2,etc." {...field} />
+                  </FormControl>
+                  <FormMessage className="text-red-200"/>
                 </FormItem>
               )}
             />
@@ -65,12 +80,11 @@ export function JobForm({id}:{id:string}) {
               control={form.control}
               name="work"
               render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Work Description: </FormLabel>
+                <FormItem className="flex flex-col w-full items-center justify-center">
                   <FormControl>
-                    <input className="text-black" placeholder="shadcn" {...field} />
+                  <textarea className="rounded-xl p-3 h-48 w-full bg-black border-[1px] border-zinc-700" placeholder="Description" {...field} />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className="text-red-200"/>
                 </FormItem>
               )}
             />
@@ -78,18 +92,18 @@ export function JobForm({id}:{id:string}) {
               control={form.control}
               name="stipend"
               render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Stipend: </FormLabel>
+                <FormItem className="flex flex-col w-full items-center justify-center">
                   <FormControl>
-                    <input className="text-black" placeholder="shadcn" {...field} />
+                  <input className="w-full rounded-xl p-3 bg-black border-[1px] border-zinc-700" placeholder="amount" {...field} />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className="text-red-200"/>
                 </FormItem>
               )}
             />
-            <Button type="submit">Submit</Button>
+            <Button className="bg-lime-950 rounded-xl" type="submit">Submit</Button>
           </form>
         </Form>
+        </div>
       )
   }
 

@@ -7,7 +7,8 @@ const page = async() => {
   // eslint-disable-next-line @typescript-eslint/non-nullable-type-assertion-style
   const id = session?.user.id as string;
   return (
-    <div className="flex items-center justify-center h-[100vh]">
+    <div className="flex flex-col gap-10 items-center w-full px-20 justify-center h-[100vh]">
+      <h1 className='text-2xl text-white font-bold'>Create a Job</h1>
       <JobForm id={id}/>
     </div>
   )

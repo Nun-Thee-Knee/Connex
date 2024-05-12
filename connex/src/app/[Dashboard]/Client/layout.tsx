@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`bg-black font-sans text-white ${inter.variable}`}>
-        <div className="flex gap-20 p-5">
+        <div className="flex gap-10 p-5">
           <div className="hidden lg:block">
             <SideDrawer />
           </div>
@@ -51,7 +51,7 @@ export default function RootLayout({
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <div className="flex items-center justify-center">{children}</div>
+          <div className="flex w-full items-center justify-center">{children}</div>
         </div>
       </body>
     </html>

@@ -11,7 +11,7 @@ const SideDrawer = async () => {
   const name = session?.user.name;
   const email = session?.user.email;
   return (
-    <div className="flex h-[95vh] w-80 items-start justify-center rounded-xl bg-neutral-950 px-5 py-10">
+    <div className="flex h-[100vh] w-80 items-start justify-center rounded-xl bg-neutral-950 px-5 py-10">
       <div className="w-full">
         <center className="flex w-full flex-col items-center justify-center gap-3">
           <Avatar className="scale-125">
