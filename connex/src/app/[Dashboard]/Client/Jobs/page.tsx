@@ -17,6 +17,7 @@ const Jobs = () => {
           {jobData?.map((job) => {
             return (
               <JobComponent
+                key={job.id}
                 name={job.name}
                 jobRoles={job.workRoles}
                 description={job.work}
