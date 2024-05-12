@@ -13,7 +13,7 @@ export const appRouter = createTRPCRouter({
     user: userRouter,
     job: jobRouter,
     resume: resumeRouter,
-    apply: jobApplyRouter,
+    application: jobApplyRouter,
 });
 
 // export type definition of API

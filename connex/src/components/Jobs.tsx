@@ -34,14 +34,7 @@ const Jobs = ({ jobList }: { jobList: jobType[] }) => {
   const { data: resume, isLoading: resumeLoading } =
     api.resume.getResume.useQuery({ id });
 
-  const {
-    mutate: applyJob,
-    isError,
-    isPending,
-  } = api.apply.applyJob.useMutation({
-    // onMutate: async ({ id, jobId }) => {
-    //   applyJob({ id, jobId });
-    // },
+  const applyJob = api.application.applyJob.useMutation({
     onSuccess: () => {
       console.log("Applied");
     },
@@ -50,12 +43,10 @@ const Jobs = ({ jobList }: { jobList: jobType[] }) => {
     },
   });
 
-  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
-
-  };
+  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {};
   return (
     <div className="grid flex-col gap-5 md:grid-cols-2 lg:grid-cols-3">
-      {jobList.map((job) => {
+      {jobList?.map((job) => {
         return (
           <AlertDialog key={job.id}>
             <AlertDialogTrigger>
@@ -85,6 +76,7 @@ const Jobs = ({ jobList }: { jobList: jobType[] }) => {
           </AlertDialog>
         );
       })}
+      {!jobList && <h1 className="text-4xl text-white">No Jobs Available</h1>}
     </div>
   );
 };
