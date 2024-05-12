@@ -2,7 +2,6 @@
 import React from "react";
 import { redirect, usePathname } from "next/navigation";
 import { api } from "~/trpc/react";
-import { Role } from "@prisma/client";
 import RoleAuth from "~/components/RoleAuth";
 
 const Dashboard = () => {

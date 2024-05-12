@@ -24,7 +24,6 @@ model Jobs {
     createdBy    User          @relation(fields: [createdById], references: [id])
     createdById  String
     stipend      String        @default("0")
-    Applications Applications?
 
     @@index([name])
 }
@@ -37,8 +36,6 @@ model Applications {
     resume    String
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
-    job       Jobs     @relation(fields: [jobId], references: [id])
-    user      User     @relation(fields: [userId], references: [id])
 }
 
 enum Role {
@@ -92,7 +89,6 @@ model User {
     sessions      Session[]
     jobs          Jobs[]
     resume        Resume?
-    Applications  Applications[]
 }
 
 model VerificationToken {
