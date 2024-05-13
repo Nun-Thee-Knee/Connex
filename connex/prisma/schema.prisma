@@ -36,6 +36,7 @@ model Applications {
     resume    String
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
+    resumeScore Float @default(0)
 }
 
 enum Role {
