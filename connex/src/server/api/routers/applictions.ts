@@ -1,16 +1,23 @@
 import { createTRPCRouter, protectedProcedure } from "../trpc";
 import { z } from "zod";
 
+const applicationType = {
+    jobId: z.number(),
+    userId: z.string(),
+    status: z.string(),
+    resume: z.string()
+}
+
 export const applicationRouter = createTRPCRouter({
     create: protectedProcedure
-    .mutation(async({ctx})=>{
-        setTimeout(()=>(5000))
+    .input(z.object(applicationType))
+    .mutation(async({ctx, input})=>{
         return await ctx.db.applications.create({
             data: {
-                jobId: 7,
-                userId: "clw377haq0001vrywbh7455ur",
-                status: "Applied",
-                resume: "https://vhufx3gzojnedlwp.public.blob.vercel-storage.com/Global%20Hot%20Dog%20Delights_%20A%20Culinary%20Adventure-uAIo19UfESybY8r0RTOFzf62zRjZYn.pdf" 
+                jobId: input.jobId,
+                userId: input.userId,
+                status: input.status,
+                resume: input.resume
             }
         })
     })

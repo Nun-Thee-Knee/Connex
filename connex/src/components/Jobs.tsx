@@ -26,12 +26,11 @@ type jobType = {
   stipend: string;
 };
 
-const Jobs = ({ jobList }: { jobList: jobType[] }) => {
+const Jobs = ({ jobList,userId }: { jobList: jobType[],userId:string }) => {
   const path = usePathname();
   // eslint-disable-next-line @typescript-eslint/non-nullable-type-assertion-style
-
-  // const { data: resume, isLoading: resumeLoading } =
-  //   api.resume.getResume.useQuery({ id });
+  const { data: resume, isLoading: resumeLoading } =
+    api.resume.getResume.useQuery({ id:userId });
 
   const applyJob = api.applications.create.useMutation({
     onSuccess: ()=>{
@@ -44,36 +43,46 @@ const Jobs = ({ jobList }: { jobList: jobType[] }) => {
 
   return (
     <div className="grid flex-col gap-5 md:grid-cols-2 lg:grid-cols-3">
-      {jobList?.map((job) => {
-        return (
-          <AlertDialog key={job.id}>
-            <AlertDialogTrigger>
-              <JobComponent
-                name={job.name}
-                jobRoles={job.workRoles}
-                description={job.work}
-                salary={job.stipend}
-                date={job.createdAt}
-              />
-            </AlertDialogTrigger>
-            <AlertDialogContent>
-              <AlertDialogHeader>
-                <AlertDialogTitle>Wanted to apply?</AlertDialogTitle>
-                <AlertDialogDescription>
-                  Join our dynamic team and experience the best of the best
-                </AlertDialogDescription>
-              </AlertDialogHeader>
-              <AlertDialogFooter>
-                <AlertDialogCancel>Miss out</AlertDialogCancel>
-                <AlertDialogAction onClick={()=>{applyJob.mutate()}} >
-                  Apply Now
-                </AlertDialogAction>
-              </AlertDialogFooter>
-            </AlertDialogContent>
-          </AlertDialog>
-        );
-      })}
-      {!jobList && <h1 className="text-4xl text-white">No Jobs Available</h1>}
+      {resumeLoading?(<></>):(
+        <>
+        {jobList?.map((job) => {
+          return (
+            <AlertDialog key={job.id}>
+              <AlertDialogTrigger>
+                <JobComponent
+                  name={job.name}
+                  jobRoles={job.workRoles}
+                  description={job.work}
+                  salary={job.stipend}
+                  date={job.createdAt}
+                />
+              </AlertDialogTrigger>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Wanted to apply?</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    Join our dynamic team and experience the best of the best
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Miss out</AlertDialogCancel>
+                  <AlertDialogAction onClick={()=>{applyJob.mutate({
+                    jobId: job.id,
+                    status: "Applied",
+                    // eslint-disable-next-line @typescript-eslint/non-nullable-type-assertion-style
+                    resume: resume?.file as string,
+                    userId: userId
+                  })}} >
+                    Apply Now
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
+          );
+        })}
+        {!jobList && <h1 className="text-4xl text-white">No Jobs Available</h1>}
+        </>
+      )}
     </div>
   );
 };

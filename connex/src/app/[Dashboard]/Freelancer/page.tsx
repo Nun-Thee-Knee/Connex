@@ -18,7 +18,8 @@ type jobType = {
 
 const Page = () => {
   const { data: jobs, isLoading } = api.job.fetchAllJobs.useQuery();
-
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
+  const userId = usePathname().split("/")[1] as string
   return (
     <div className="flex h-auto flex-col items-center justify-center gap-10 px-10 py-20">
       <h1 className="text-6xl text-white">Click on the job to Apply</h1>
@@ -28,7 +29,7 @@ const Page = () => {
         </button>
       </Link>
       {/* // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion */}
-      {isLoading ? <h1>Loading</h1> : <Jobs jobList={jobs as jobType[]} />}
+      {isLoading ? <h1>Loading</h1> : <Jobs jobList={jobs as jobType[]} userId={userId}/>}
     </div>
   );
 };
