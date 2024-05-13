@@ -19,6 +19,7 @@ type jobType = {
 const page = () => {
   const { data: jobs, isLoading, error } = api.job.fetchAllJobs.useQuery();
   const path = usePathname();
+    // eslint-disable-next-line @typescript-eslint/non-nullable-type-assertion-style
   const id = path?.substring(1) as string;
 
   return (

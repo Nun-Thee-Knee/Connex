@@ -4,7 +4,7 @@ import { getServerAuthSession } from '~/server/auth'
 
 const page = async() => {
   const session = await getServerAuthSession();
-  // eslint-disable-next-line @typescript-eslint/non-nullable-type-assertion-style
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
   const id = session?.user.id as string;
   return (
     <div className="flex flex-col gap-10 items-center w-full px-20 justify-center h-[100vh]">
