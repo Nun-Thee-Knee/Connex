@@ -1,5 +1,4 @@
 "use client";
-import { getServerAuthSession } from "~/server/auth";
 import { api } from "~/trpc/react";
 import { usePathname } from "next/navigation";
 import JobComponent from "~/components/JobComponent";

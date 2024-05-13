@@ -24,8 +24,6 @@ const RoleAuth = ({ id }: { id: string }) => {
   const router = useRouter();
   const {
     mutate: updateRole,
-    isError,
-    isPending,
   } = api.user.updateRole.useMutation({
     onMutate: async ({ id, role }) => {
       updateRole({ id, role });

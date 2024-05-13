@@ -1,5 +1,5 @@
 'use client'
-import { AboutType } from 'utils/type'
+import type { AboutType } from 'utils/type'
 import { useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger';

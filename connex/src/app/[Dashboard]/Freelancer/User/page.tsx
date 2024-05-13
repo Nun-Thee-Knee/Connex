@@ -3,7 +3,7 @@ import React from "react";
 import AvatarUploadPage from "~/components/VercelBlob";
 import { usePathname } from "next/navigation";
 
-const User = async () => {
+const User = () => {
   const id: string | undefined = usePathname().split("/")[1];
   return (
     <div className="text-white">

@@ -16,11 +16,8 @@ type jobType = {
   stipend: string;
 };
 
-const page = () => {
-  const { data: jobs, isLoading, error } = api.job.fetchAllJobs.useQuery();
-  const path = usePathname();
-    // eslint-disable-next-line @typescript-eslint/non-nullable-type-assertion-style
-  const id = path?.substring(1) as string;
+const Page = () => {
+  const { data: jobs, isLoading } = api.job.fetchAllJobs.useQuery();
 
   return (
     <div className="flex h-auto flex-col items-center justify-center gap-10 px-10 py-20">
@@ -36,4 +33,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

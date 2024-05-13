@@ -5,7 +5,7 @@ import AboutItem from "~/components/AboutItem";
 import Card from "~/components/Card";
 import Heading from "~/components/Heading";
 import NavBar from "~/components/NavBar";
-import { CardType, ContactType } from "utils/type";
+import type { CardType, ContactType } from "utils/type";
 import { FaDiscord, FaLinkedin, FaInstagram, FaGithub  } from "react-icons/fa";
 import Link from "next/link";
 

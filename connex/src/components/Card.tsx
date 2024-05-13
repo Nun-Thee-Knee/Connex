@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect } from 'react';
-import { CardType } from 'utils/type';
+import type { CardType } from 'utils/type';
 import gsap from 'gsap';
 import Image from 'next/image';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';

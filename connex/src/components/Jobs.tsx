@@ -28,7 +28,6 @@ type jobType = {
 
 const Jobs = ({ jobList }: { jobList: jobType[] }) => {
   const path = usePathname();
-  const id = path?.substring(1) as string;
   // eslint-disable-next-line @typescript-eslint/non-nullable-type-assertion-style
 
   // const { data: resume, isLoading: resumeLoading } =

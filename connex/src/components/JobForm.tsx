@@ -8,7 +8,6 @@ import {
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "~/components/ui/form"
 import { api } from "~/trpc/react"
@@ -22,7 +21,6 @@ const formSchema = z.object({
 })
 
 export function JobForm({id}:{id:string}) {
-  const router = useRouter();
   const jobCreate = api.job.create.useMutation({
     onSuccess: ()=>{
       return redirect("Client/Jobs")

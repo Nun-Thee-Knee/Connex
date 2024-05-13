@@ -1,4 +1,4 @@
-import { UsersRound } from "lucide-react";
+
 
 type JobComponent = {
     name: string,
